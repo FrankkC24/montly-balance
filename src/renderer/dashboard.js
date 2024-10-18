@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   generatePieChart(ctxPie, data.incomes, labels);
 });
 
-// Usar Chart directamente, ya que está cargado desde la CDN
 const generateBarChart = (ctx, data, labels) => {
   new Chart(ctx, {
     type: 'bar',

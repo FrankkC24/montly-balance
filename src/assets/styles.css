@@ -4,7 +4,7 @@ body {
     padding: 0;
     display: flex;
     height: 100vh;
-    overflow: hidden; /* Evitar scroll */
+    overflow: hidden;
   }
   
   .container {
@@ -155,6 +155,6 @@ body {
     color: green;
     font-size: 16px;
     margin-top: 10px;
-    display: none; /* Inicialmente oculto */
+    display: none;
   }
   

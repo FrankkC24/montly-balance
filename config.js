@@ -1,5 +1,4 @@
 export const config = {
-    // Textos de la interfaz de usuario
     ui: {
       dashboard: {
         title: 'Balance Mensual',
@@ -24,14 +23,12 @@ export const config = {
         exportPdfButton: 'Exportar a PDF',
       },
     },
-  
-    // Mensajes de notificaciones
+
     notifications: {
       paymentReminderTitle: 'Recordatorio de Pago',
       paymentReminderBody: 'Tienes un pago pendiente para este mes.',
     },
-  
-    // Otras configuraciones
+
     charts: {
       barColors: ['rgba(75, 192, 192, 0.7)', 'rgba(255, 99, 132, 0.7)'],
       pieColors: [
