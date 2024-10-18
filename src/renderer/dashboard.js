@@ -1,0 +1,67 @@
+import { config } from '../../config.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  const ctxBar = document.getElementById('barChart').getContext('2d');
+  const ctxPie = document.getElementById('pieChart').getContext('2d');
+
+  const labels = ['Hogar', 'Transporte', 'Entretenimiento'];
+  const data = {
+    incomes: [200, 150, 300],
+    expenses: [180, 130, 220],
+  };
+
+  generateBarChart(ctxBar, data, labels);
+  generatePieChart(ctxPie, data.incomes, labels);
+});
+
+// Usar Chart directamente, ya que está cargado desde la CDN
+const generateBarChart = (ctx, data, labels) => {
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: config.ui.dashboard.labels.income,
+          data: data.incomes,
+          backgroundColor: config.charts.barColors[0],
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1,
+        },
+        {
+          label: config.ui.dashboard.labels.expenses,
+          data: data.expenses,
+          backgroundColor: config.charts.barColors[1],
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        tooltip: {
+          mode: 'index',
+          intersect: false,
+        },
+        legend: {
+          position: 'top',
+        },
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: config.ui.dashboard.barChartTitle,
+          },
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Monto ($)',
+          },
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+};

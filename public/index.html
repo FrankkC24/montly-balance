@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montly Balance</title>
+    <link rel="stylesheet" href="../src/assets/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Menú lateral -->
+        <aside class="sidebar">
+            <h2>Menú</h2>
+            <ul>
+                <li><button onclick="window.location.href = './form.html'">Añadir Transacción</button></li>
+            </ul>
+        </aside>
+
+        <!-- Sección de gráficos -->
+        <main class="main-content">
+            <div class="charts-container">
+                <div class="chart-item">
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div class="chart-item">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Cargar Chart.js desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.umd.min.js"></script>
+    <script type="module" src="../src/renderer/dashboard.js"></script>
+</body>
+</html>
