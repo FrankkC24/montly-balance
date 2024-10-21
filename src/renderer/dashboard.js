@@ -1,24 +1,22 @@
-import Chart from '../../node_modules/chart.js/auto';
 import { config } from '../../config.js';
 
+// Asegúrate de que Chart esté disponible de forma global
 document.addEventListener('DOMContentLoaded', () => {
-  const ctxBar = document.getElementById('barChart')?.getContext('2d');
-  const ctxPie = document.getElementById('pieChart')?.getContext('2d');
+  const ctxBar = document.getElementById('barChart').getContext('2d');
+  const ctxPie = document.getElementById('pieChart').getContext('2d');
 
-  if (ctxBar && ctxPie) {
-    const labels = ['Hogar', 'Transporte', 'Entretenimiento'];
-    const data = {
-      incomes: [200, 150, 300],
-      expenses: [180, 130, 220],
-    };
+  const labels = ['Hogar', 'Transporte', 'Entretenimiento'];
+  const data = {
+    incomes: [200, 150, 300],
+    expenses: [180, 130, 220],
+  };
 
-    generateBarChart(ctxBar, data, labels);
-    generatePieChart(ctxPie, data.incomes, labels);
-  }
+  generateBarChart(ctxBar, data, labels);
+  generatePieChart(ctxPie, data.incomes, labels);
 });
 
 const generateBarChart = (ctx, data, labels) => {
-  new Chart(ctx, {
+  new Chart(ctx, {  // Ahora Chart está disponible globalmente
     type: 'bar',
     data: {
       labels: labels,
@@ -62,6 +60,30 @@ const generateBarChart = (ctx, data, labels) => {
             text: 'Monto ($)',
           },
           beginAtZero: true,
+        },
+      },
+    },
+  });
+};
+
+const generatePieChart = (ctx, data, labels) => {
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          data: data,
+          backgroundColor: config.charts.pieColors,
+          hoverOffset: 4,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
         },
       },
     },

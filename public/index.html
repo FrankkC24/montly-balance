@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Montly Balance</title>
-    <link rel="stylesheet" href="../src/assets/styles.css">
+    <title>Monthly Balance</title>
+    <link rel="stylesheet" href="../src/assets/styles-dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
+        <!-- Menú lateral con el logo -->
         <aside class="sidebar">
-            <h2>Menú</h2>
-            <ul>
-                <li><button onclick="window.location.href = './form.html'">Añadir Transacción</button></li>
-            </ul>
+            <img src="../src/assets/logo.png" alt="Monthly Balance Logo" class="logo" />
+            <button onclick="window.location.href = './form.html'">Añadir Transacción</button>
         </aside>
 
+        <!-- Contenido principal -->
         <main class="main-content">
+            <h1>Balance Mensual</h1>
             <div class="charts-container">
                 <div class="chart-item">
                     <canvas id="barChart"></canvas>
@@ -26,7 +28,6 @@
             </div>
         </main>
     </div>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.umd.min.js"></script> -->
     <script type="module" src="../src/renderer/dashboard.js"></script>
 </body>
 </html>
