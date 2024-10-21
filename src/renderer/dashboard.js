@@ -1,6 +1,5 @@
 import { config } from '../../config.js';
 
-// Asegúrate de que Chart esté disponible de forma global
 document.addEventListener('DOMContentLoaded', () => {
   const ctxBar = document.getElementById('barChart').getContext('2d');
   const ctxPie = document.getElementById('pieChart').getContext('2d');
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const generateBarChart = (ctx, data, labels) => {
-  new Chart(ctx, {  // Ahora Chart está disponible globalmente
+  new Chart(ctx, {
     type: 'bar',
     data: {
       labels: labels,
