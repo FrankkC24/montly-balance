@@ -1,17 +1,20 @@
+import Chart from '../../node_modules/chart.js/auto';
 import { config } from '../../config.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const ctxBar = document.getElementById('barChart').getContext('2d');
-  const ctxPie = document.getElementById('pieChart').getContext('2d');
+  const ctxBar = document.getElementById('barChart')?.getContext('2d');
+  const ctxPie = document.getElementById('pieChart')?.getContext('2d');
 
-  const labels = ['Hogar', 'Transporte', 'Entretenimiento'];
-  const data = {
-    incomes: [200, 150, 300],
-    expenses: [180, 130, 220],
-  };
+  if (ctxBar && ctxPie) {
+    const labels = ['Hogar', 'Transporte', 'Entretenimiento'];
+    const data = {
+      incomes: [200, 150, 300],
+      expenses: [180, 130, 220],
+    };
 
-  generateBarChart(ctxBar, data, labels);
-  generatePieChart(ctxPie, data.incomes, labels);
+    generateBarChart(ctxBar, data, labels);
+    generatePieChart(ctxPie, data.incomes, labels);
+  }
 });
 
 const generateBarChart = (ctx, data, labels) => {
